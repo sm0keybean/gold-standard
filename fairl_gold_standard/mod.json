@@ -1,0 +1,15 @@
+{
+  "modId": "fairl_gold_standard",
+  "revision": 4,
+  "severityAdd": "None",
+  "severityRemove": "None",
+  "visible": true,
+  "cosmetic": true,
+  "incompatibilities": [
+    {
+      "mod": {
+        "modId": "fairl_greifenvauder_franken"
+      }
+    }
+  ]
+}

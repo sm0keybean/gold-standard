@@ -1,0 +1,8 @@
+{
+  "name": "Gold Standard (Preview)",
+  "summary": "Create a currency with live previews, editable rates and save-specific settings.",
+  "description": "Private preview. Open Gold Standard from the in-game mod button area. Formatting presets are not historical exchange rates. Native construction/floating amounts are not numerically converted; raw game-unit labels are the default. Disable GF-001 before enabling this mod. Not an officially curated release.",
+  "authors": [{"name": "sm0keybean", "role": "CREATOR"}],
+  "tags": ["Script Mod"],
+  "url": "https://github.com/sm0keybean/gold-standard"
+}

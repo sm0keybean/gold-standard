@@ -1,0 +1,18 @@
+# Test dependencies and generated release packages
+/test-runtime/
+*.zip
+__pycache__/
+*.pyc
+
+# Local diagnostics and private game data
+*.log
+stdout*.txt
+*.sav
+*.dmp
+.env
+.env.*
+
+# Local staging / generated export folders
+/staging/
+/dist/
+/repository-created.png
