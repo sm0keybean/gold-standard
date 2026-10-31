@@ -1,6 +1,6 @@
 # Gold Standard — Currency Studio
 
-![Gold Standard — Your world. Your currency.](branding/listing/gold-standard-banner.png)
+![Gold Standard — Your world. Your currency.](branding/concepts/banknote-2x.png)
 
 Create a currency for your Transport Fever 3 world: choose a familiar label or invent your own, set a conversion rate and monetary base year, and preview an annual inflation or deflation rate in the in-game settings panel.
 

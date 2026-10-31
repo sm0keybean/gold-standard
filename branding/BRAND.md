@@ -1,5 +1,13 @@
 # Gold Standard visual identity
 
+## Adopted direction
+
+Banknote + coin seal, confirmed by the creator. The supplied Banknote artwork is the primary GitHub/promotional banner. The circular GS coin seal is the primary mark; use a single ring and flat gold for small UI sizes. Retain the rounded button currently shipped until a native-compatible coin treatment has been implemented and verified in-game.
+
+Creator-supplied exports are preserved in concepts/: banknote-2x.png, mark-studies-2x.png and thumbnail-2x.png. The square thumbnail is for community/profile use, not the required 16:9 listing cover. The earlier generated banner and schematic cover remain archived alternatives. No game resources or runtime files were changed by adopting this direction.
+
+The Banknote export is 3200 x 1800. Prepare a separate 1920 x 1080 listing export if needed; the promotional text-heavy banner is not automatically the mod.io cover. Actual panel screenshots and upload validation remain pending.
+
 - Name: Gold Standard
 - Tool name: Currency Studio
 - Monogram: GS
