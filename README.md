@@ -1,4 +1,4 @@
-# Gold Standard — Currency Studio
+# Gold Standard: Currency Studio
 
 ![Gold Standard — Your world. Your currency.](branding/concepts/banknote-2x.png)
 
