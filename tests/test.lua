@@ -24,8 +24,11 @@ function react.useState(initial)
 end
 function react.RegisterWrapperRecipe(name,wrapped,fn) return fn end
 function react.RegisterPluginRecipe(extension,name,fn) return fn end
-builtin=setmetatable({type={Orientation={Vertical=1,Horizontal=2}}},{__index=function(t,key)
-    local f=function(params) return {kind=key,p=params} end
+builtin=setmetatable({type={Orientation={Vertical=1,Horizontal=2},ImageViewScaling={AutoFit=1}}},{__index=function(t,key)
+    local f=function(params)
+        if key=="ImageView" then assert(params.size==nil,"ImageView size must use native Vec2i or stylesheet sizing") end
+        return {kind=key,p=params}
+    end
     rawset(t,key,f);return f
 end})
 local windowApi={}
@@ -136,9 +139,9 @@ local toolbar=data().SettingsButton()
 check(toolbar.kind=="BoxLayout")
 local button=toolbar.p.children[1]
 check(button.kind=="Button")
-check(button.p.content.p.text=="GS")
+check(button.p.content.kind=="ImageView" and button.p.content.p.path=="fairl_gold_standard::/gold/seal-small.tga")
 check(button.p.meta.class=="goldstandard-launcher")
-check(button.p.meta.tooltip=="Gold Standard — Currency Studio")
+check(button.p.meta.tooltip=="Gold Standard: Currency Studio")
 button.p.onClick()
 local window,params=next(windows)
 check(window~=nil)
@@ -185,4 +188,34 @@ for _,rule in ipairs(styles) do
 end
 check(launcherStyle and launcherStyle.size[1]==44 and launcherStyle.size[2]==32)
 check(launcherStyle.maxSize[1]==44 and launcherStyle.maxSize[2]==32)
+-- Narrow fields opt in explicitly; normal formatters and preferences stay full.
+local narrow=model.defaults()
+narrow.label="GFr.";narrow.baseRate=1;narrow.baseYear=1900;narrow.inflation=0
+narrow.decimals=2;narrow.compact=false;narrow.grouping="comma"
+check(runtime.apply(narrow,false))
+local short,full=runtime.narrowMoney(-48146.92)
+check(short=="GFr. -48.15 K")
+check(full=="GFr. -48,146.92")
+check(api.util.formatMoney(-48146.92)==full)
+narrow.grouping="dot"
+check(runtime.apply(narrow,false))
+short,full=runtime.narrowMoney(-48146.92)
+check(short=="GFr. -48,15 K")
+check(full=="GFr. -48.146,92")
+check(api.util.formatMoney(-48146.92)==full)
+narrow.position="suffix";narrow.decimals=1;narrow.baseRate=0.25;narrow.inflation=2
+check(runtime.apply(narrow,false))
+short,full=runtime.narrowMoney(1000000)
+check(short=="371,5 K GFr.")
+check(full=="371.486,8 GFr.")
+check(api.util.formatMoney(1000000)==full)
+short,full=runtime.narrowMoney(0)
+check(short=="0,0 GFr." and full==short)
+short,full=runtime.narrowMoney(nil)
+check(short=="∞ GFr." and full==short)
+narrow.compact=true
+check(runtime.apply(narrow,false))
+short,full=runtime.narrowMoney(1000000)
+check(short=="371,5 K GFr." and full=="371.486,8 GFr.")
+check(api.util.formatMoney(1000000)==short)
 return count,growth

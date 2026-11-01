@@ -50,6 +50,16 @@ function M.currentYear()
     local ok,y=pcall(year)
     return ok and y or active.baseYear
 end
+-- Explicit opt-in for cramped third-party cells; never changes active preferences.
+-- Return both representations from the same settings/year snapshot.
+function M.narrowMoney(amount)
+    local c=model.copy(active)
+    local y=M.currentYear()
+    c.compact=true
+    local short=format.money(amount,c,y)
+    c.compact=false
+    return short,format.money(amount,c,y)
+end
 function M.apply(input,persist)
     local c,err=model.validate(input)
     if not c then return nil,err end

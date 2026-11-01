@@ -28,7 +28,7 @@ local SettingsWindow=react.RegisterWrapperRecipe("GoldStandardWindow",builtin.Wi
     for _,p in ipairs(model.presets) do presetItems[#presetItems+1]=builtin.ComboBoxItem{value=p.id,content=text(p.name)} end
     local children={
         builtin.BoxLayout{orientation=builtin.type.Orientation.Horizontal,meta={class="goldstandard-brand-header"},children={
-            builtin.TextView{text="GS",meta={class="goldstandard-brand-seal, font-scale-heading"}},
+            builtin.ImageView{path="fairl_gold_standard::/gold/seal-panel.tga",scaling=builtin.type.ImageViewScaling.AutoFit,meta={class="goldstandard-brand-seal"}},
             builtin.BoxLayout{orientation=builtin.type.Orientation.Vertical,children={
                 builtin.TextView{text="GOLD STANDARD",meta={class="goldstandard-brand-title, font-scale-heading"}},
                 builtin.TextView{text="Your world. Your currency.",meta={class="goldstandard-brand-tagline"}},
@@ -74,7 +74,7 @@ local SettingsWindow=react.RegisterWrapperRecipe("GoldStandardWindow",builtin.Wi
         builtin.Button{content=text("Reset preview"),onClick=function() draft:set(model.defaults());status:set("Defaults previewed; Apply to commit.") end},
         builtin.Button{content=text("Cancel / Close"),onClick=params.onClose},
     }}
-    return builtin.Window{title="Gold Standard — Currency Studio",id="fairl.goldstandard.settings",closable=true,movable=true,
+    return builtin.Window{title="Gold Standard: Currency Studio",id="fairl.goldstandard.settings",closable=true,movable=true,
         initialVisible=true,onClose=params.onClose,meta={class="goldstandard-window"},
         content=builtin.ScrollArea{meta={class="goldstandard-scroll"},content=builtin.Component{layout=builtin.BoxLayout{
             orientation=builtin.type.Orientation.Vertical,children=children}}}}
@@ -82,8 +82,8 @@ end)
 local SettingsButton=react.RegisterPluginRecipe(buttonArea.MainModButtonAreaExtension,"GoldStandardSettingsButton",function()
     -- MainModButtonArea inserts plugin results into a BoxLayout: return a layout.
     return builtin.BoxLayout{orientation=builtin.type.Orientation.Vertical,children={
-        builtin.Button{content=builtin.TextView{text="GS",meta={class="goldstandard-launcher-label, font-scale-body"}},
-            meta={class="goldstandard-launcher",tooltip="Gold Standard — Currency Studio"},onClick=function()
+        builtin.Button{content=builtin.ImageView{path="fairl_gold_standard::/gold/seal-small.tga",scaling=builtin.type.ImageViewScaling.AutoFit,meta={class="goldstandard-launcher-image"}},
+            meta={class="goldstandard-launcher",tooltip="Gold Standard: Currency Studio"},onClick=function()
             local windows=globals.getDefaultWindowApi()
             if windows then windows.addSingletonWindow(SettingsWindow,{onClose=function() windows.removeAllWindows(SettingsWindow) end}) end
         end},

@@ -13,10 +13,12 @@ function data()
     local surface={fileName="::/gui/builtin/button/default_surface.tga",horizontal={0,9,21,30},vertical={0,9,21,30}}
     local contour={fileName="::/gui/builtin/button/default_contour.tga",horizontal={0,9,21,30},vertical={0,9,21,30}}
     add("Button!goldstandard-launcher",{
-        size={44,32},minSize={44,32},maxSize={44,32},padding={2,6,2,6},
+        size={44,32},minSize={44,32},maxSize={44,32},padding={0,6,0,6},
         backgroundImage1=surface,borderImage=contour,backgroundColor1=navy,borderColor=gold})
     add("Button!goldstandard-launcher:hover",{backgroundColor1=hover,borderColor=lightGold})
     add("Button!goldstandard-launcher:active",{backgroundColor1=pressed,borderColor=lightGold})
+    -- ImageView recipe size is native Vec2i; size images through styles instead.
+    add("ImageView!goldstandard-launcher-image",{size={32,32},minSize={32,32},maxSize={32,32}})
     add("TextView!goldstandard-launcher-label",{color=gold,textAlignment={0.5,0.5},textAutoWrap=false})
     add("Button!goldstandard-launcher:hover TextView",{color=lightGold})
     add(window.." Window::Content",{size={740,-1},padding={12,12,12,12}})
@@ -26,9 +28,8 @@ function data()
     add(window.." TextInputField",{minSize={500,30}})
     add(window.." ComboBox",{minSize={500,30}})
     add(window.." BoxLayout!goldstandard-brand-header",{innerSpacing={12,0},padding={4,4,10,4}})
-    add(window.." TextView!goldstandard-brand-seal",{
-        size={46,46},minSize={46,46},maxSize={46,46},textAutoWrap=false,textAlignment={0.5,0.5},
-        color=gold,backgroundImage1=surface,borderImage=contour,backgroundColor1=navy,borderColor=gold})
+    add(window.." ImageView!goldstandard-brand-seal",{
+        size={46,46},minSize={46,46},maxSize={46,46}})
     add(window.." TextView!goldstandard-brand-title",{color=gold,textAutoWrap=false})
     add(window.." TextView!goldstandard-brand-tagline",{color=muted})
     return result

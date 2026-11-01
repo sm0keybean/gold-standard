@@ -16,3 +16,5 @@ stdout*.txt
 /staging/
 /dist/
 /repository-created.png
+/local-compatibility/
+/build_local_compatibility.py
