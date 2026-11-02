@@ -1,6 +1,6 @@
 # Gold Standard: Currency Studio
 
-![Gold Standard — Your world. Your currency.](branding/concepts/banknote-2x.png)
+![Gold Standard — Your world. Your currency.](branding/listing/gold-standard-00-cover.png)
 
 **Your world. Your currency.**
 
