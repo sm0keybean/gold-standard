@@ -55,6 +55,7 @@ Panels using the shared Lua money-formatting functions can inherit Gold Standard
 - Some cached labels refresh only after reopening a panel or a related state change.
 - Disabling requires a full game restart. Retained native currency-prefix settings may also need restoration.
 - Long labels and high precision may exceed fixed-width fields supplied by other mods.
+- Enhanced Vehicle Store uses a separate abbreviation function in its table. Without integration, a compact table price can retain the underlying game-dollar number while its label and detail view use Gold Standard. A matching currency label alone does not establish that a value was converted. Store updates can replace local compatibility changes; Gold Standard does not ship or maintain modified copies of other mods.
 
 Developed and tested on Steam / Windows 64-bit, TF3 build 40425. Other platforms and builds have not been verified. Back up important saves before adding or updating mods.
 
@@ -67,6 +68,26 @@ Install Python and Lupa (with Lua 5.4 support), then run `python tests/run_tests
 ### Integrating narrow money fields
 
 `runtime.narrowMoney(amount)` returns compact and full converted strings from the same settings/year snapshot. It preserves label, position, separators, and precision without changing ordinary formatting. Other mods must explicitly opt in; Gold Standard does not automatically rewrite their panels. Use the full string for a tooltip and the compact string for the narrow field.
+
+Pass the original game-dollar amount exactly once. Do not abbreviate that raw number and attach a label extracted from a converted string: this changes the label without converting the number. Do not pass an already converted amount, which would apply conversion twice.
+
+An optional integration can load the helper safely and retain the panel's existing formatter when Gold Standard is unavailable:
+
+```lua
+local ok, gs = pcall(ug_require, "fairl_gold_standard::/gold/runtime.lua")
+
+local function narrowMoney(rawAmount)
+    if ok and type(gs) == "table" and type(gs.narrowMoney) == "function" then
+        local converted, short, full = pcall(gs.narrowMoney, rawAmount)
+        if converted and type(short) == "string" and type(full) == "string" then
+            return short, full -- cell text, full-value tooltip
+        end
+    end
+    return existingMoneyFormatter(rawAmount) -- supplied by the integrating mod
+end
+```
+
+Use this only for constrained money cells; leave roomy detail views on the normal shared money formatter. Check table, details, tooltip and purchase total for the same vehicle, including a value above 100,000 game dollars. Repeat after changing the conversion rate, annual rate, decimal separator and label position. Display integration must leave purchase calculations and affordability checks in game dollars.
 
 ## Community and support
 
