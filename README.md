@@ -2,75 +2,76 @@
 
 ![Gold Standard — Your world. Your currency.](branding/concepts/banknote-2x.png)
 
-Create a currency for your Transport Fever 3 world: choose a familiar label or invent your own, set a conversion rate and monetary base year, and preview an annual inflation or deflation rate in the in-game settings panel.
+**Your world. Your currency.**
 
-By [sm0keybean](https://github.com/sm0keybean). Original project code and documentation use the [MIT license](LICENSE). [Voluntary support on Ko-fi](https://ko-fi.com/smokeybean) does not unlock features.
+Customize how money appears in Transport Fever 3. Choose a currency label, conversion rate, monetary base year, and annual display inflation or deflation, with live previews in Currency Studio.
 
-## Preview status
+**[Get Gold Standard on mod.io](https://mod.io/g/transportfever3/m/gold-standard-currency-studio)** · [Report a bug](https://github.com/sm0keybean/gold-standard/issues) · [Contribute](CONTRIBUTING.md)
 
-This repository contains Preview 8 (revision 8), developed for Steam / Windows 64-bit, build 40425. The coin-seal interface and colon-separated title have been verified visually in-game by the creator. Full persistence, compatibility and long-session validation remain on the release checklist. This is a community development preview; it has not been submitted to mod.io or officially curated.
+Published November 1, 2026. Created by [sm0keybean](https://github.com/sm0keybean). Original code and documentation use the [MIT license](LICENSE).
 
 ## Features
 
-- Editable currency presets and custom labels up to 12 Unicode characters.
-- Conversion rate, monetary base year and annual fictional inflation/deflation.
-- Decimal precision, grouping, prefix/suffix and compact K/M/B amounts.
-- Live previews, Apply, Cancel and preview defaults.
-- Save-specific preferences, retained when you save the game.
-- Compact GS toolbar button and Currency Studio window.
+- Editable currency presets and custom labels of 1–12 Unicode characters.
+- Configurable conversion rate, base year, and annual display inflation/deflation.
+- Decimal precision, grouping separators, prefix/suffix placement, and compact K/M/B amounts.
+- Live previews, Apply, Cancel, and Reset Preview controls.
+- Save-specific preferences retained when you save the game.
+- Gold GS coin-seal toolbar button and Currency Studio panel.
 
-Major-currency presets are formatting presets with editable 1:1 defaults, not historical gold parity or contemporary exchange rates. Greifenvauder Franken defaults to 0.25 per game dollar, base year 1900 and 2% annual fictional inflation.
+## Install and use
+
+1. Subscribe on [mod.io](https://mod.io/g/transportfever3/m/gold-standard-currency-studio), or locate the listing in TF3's Mod Hub.
+2. Enable **Gold Standard: Currency Studio** for your game.
+3. Open the gold **GS coin-seal button** in the mod toolbar.
+4. Choose a preset or create a currency, then adjust the settings and live previews.
+5. Select **Apply to this save**, then save your game to retain the settings.
+
+For manual installation from this repository, copy only `fairl_gold_standard` into your TF3 user-data `local/mods` directory. The copied folder must directly contain `mod.json`. Do not copy the entire repository into the mods directory.
 
 ## Use any currency
 
-Japanese yen is available as a preset. For Korean won, Russian ruble or another denomination, choose **Create your own**, enter a label of 1–12 Unicode characters, and set your conversion rate. Examples include `¥` or `JPY`, `₩` or `KRW`, and `₽` or `RUB`.
+Japanese yen is included as a preset. For Korean won, Russian ruble or another real or fictional denomination, choose **Create your own**, enter a label, and set your conversion rate. Examples: `¥` / `JPY`, `₩` / `KRW`, `₽` / `RUB`, florin `ƒ`, and franc `₣`.
 
-Choose decimal places (including 0 for whole units), number grouping, and whether the label appears before or after the amount. Your base year and annual display inflation/deflation apply to custom currencies just as they do to presets. Select **Apply to this save**, then save your game to retain the settings.
+Choose decimal places (including 0 for whole units), grouping separators, and whether the label appears before or after the amount. The base year and annual display rate apply to custom currencies as well as presets. If a symbol does not render in the game font, use its letter code instead.
 
-Rates are user-defined, not live exchange rates or verified historical conversions. Symbol rendering depends on the game's font; use a letter code such as JPY, KRW or RUB if a symbol does not render correctly.
+Presets provide editable labels and formatting starting points, not live exchange rates, historical gold parities, or verified purchasing-power estimates. Major-currency preset rates start at 1:1. Greifenvauder Franken defaults to 0.25 per game dollar, base year 1900, and 2% annual display inflation.
 
 ## How the calendar affects money
 
 Converted display amount = game amount × base rate × (1 + annual percent / 100)^(current game year − base year).
 
-At a 0.25 base rate and 2% annual rate, 1,000 game dollars display as 250 currency units in 1900 and approximately 305 in 1910. This follows the in-game calendar, not time spent playing.
+At a 0.25 base rate and 2% annual rate, an unchanged 1,000 game dollars displays as 250 currency units in 1900 and approximately 305 in 1910. This follows the in-game calendar, not time spent playing.
 
-The mod changes displays, not simulation balances, charges or prices. Its annual rate is an additional display index. The game's independent price changes, company-level fare multipliers and subsidy scaling still apply. This is not a central-bank, purchasing-power or gold-reserve simulation. Historical finance rows use the current year's conversion, not the transaction year's rate.
+Gold Standard changes supported displays, not simulation balances, charges, prices or difficulty. The game's own economic adjustments continue independently. Historical finance rows use the current year's conversion, not each transaction's year. This is a denomination/display system rather than a simulation of central banks, gold reserves, or purchasing-power erosion.
 
-## Known limitations
+## Compatibility and limitations
 
-Native construction previews and floating numbers bypass Lua numerical conversion. They default to an honest `game $` label. The experimental native-label option changes only their label: it does not convert their values or apply inflation, precision or suffix placement. Sandbox/account inputs remain in game dollars. Cached labels may need a panel reopen or underlying state change to refresh.
+Panels using the shared Lua money-formatting functions can inherit Gold Standard's formatting. Other currency mods, custom formatters, and native displays may require integration; compatibility with every mod is not guaranteed.
 
-Disabling the mod does not restore the native prefix during unload. Restart the game; persisted application prefix preferences may also need restoration. Do not enable Gold Standard alongside GF-001 Greifenvauder Franken.
+- Native construction previews and floating numbers are not numerically converted. They use `game $` by default. The experimental native-label option changes the label only.
+- The save-selection account preview remains in underlying game dollars.
+- Sandbox/account inputs remain in game dollars.
+- Some cached labels refresh only after reopening a panel or a related state change.
+- Disabling requires a full game restart. Retained native currency-prefix settings may also need restoration.
+- Long labels and high precision may exceed fixed-width fields supplied by other mods.
 
-## Install for testing
+Developed and tested on Steam / Windows 64-bit, TF3 build 40425. Other platforms and builds have not been verified. Back up important saves before adding or updating mods.
 
-1. Back up your saves and fully exit the game.
-2. Copy `fairl_gold_standard` into your Transport Fever 3 user-data `local/mods` folder. The copied folder must directly contain `mod.json`.
-3. Restart, select a duplicate test save, disable GF-001 and enable Gold Standard (Preview).
-4. Open the GS button, adjust settings and select Apply.
-5. Save the duplicate, fully restart and reload to check persistence.
+## Development
 
-Do not copy tests, development tools or the whole repository into the mods folder.
+Written in Lua using TF3's built-in GUI and scripting APIs, Lua stylesheet definitions, JSON metadata, and static seal images. Calculations, formatting, preferences, and interface code are separate modules. The mod adds no per-frame polling, timers, subscriptions, network access, or telemetry.
 
-## Bugs and contributions
+Install Python and Lupa (with Lua 5.4 support), then run `python tests/run_tests.py`. These are development dependencies, not player requirements. Automated checks cover validation, formatting, mocked persistence and lifecycle behavior; native rendering, serialization, compatibility, and long-session behavior also require in-game testing.
 
-[Report a bug](https://github.com/sm0keybean/gold-standard/issues/new?template=bug_report.md) with the game build, mod revision, settings and reproduction steps. Remove personal information from screenshots and error excerpts. Please do not upload full saves unless requested.
+### Integrating narrow money fields
 
-Community improvements and translations are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md). Donations are optional; the mod's features remain free.
+`runtime.narrowMoney(amount)` returns compact and full converted strings from the same settings/year snapshot. It preserves label, position, separators, and precision without changing ordinary formatting. Other mods must explicitly opt in; Gold Standard does not automatically rewrite their panels. Use the full string for a tooltip and the compact string for the narrow field.
 
-## Development and validation
+## Community and support
 
-With Python and Lupa installed, run `python tests/run_tests.py`. The runner can also use a local `test-runtime` dependency directory, which is excluded from version control.
+Bug reports, improvements and translations are welcome. Include the game build, mod revision, settings, reproduction steps, and relevant screenshots or error excerpts in [GitHub Issues](https://github.com/sm0keybean/gold-standard/issues). Remove personal information before sharing diagnostics. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-The current suite passes 1,528 checks in standard Lua and again with global `utf8` unavailable. It covers validation, formatting, mocked persistence and failure rollback, stable wrapper identities and repeated window opening/closing. Mock checks do not prove native rendering, serialization or leak-free operation. No per-frame polling, timers, subscriptions, network access or telemetry are used by the mod.
+[Optional support on Ko-fi](https://ko-fi.com/smokeybean) is voluntary. All features remain free; donations do not unlock content.
 
-Game API/resource references include Urban Games' shipped bootstrap, GUI component and mod-specific GuiSaveData definitions. Third-party game resources and trademarks retain their respective ownership; MIT covers this project's original work. The game is required and is not included.
-
-## Preview 6 image sizing fix
-
-Preview 5 failed at startup because ImageView recipe size requires a native Vec2i, not a Lua table. Both seal images now use stylesheet sizing and AutoFit, following shipped GUI patterns. The mock rejects direct ImageView sizes to catch this regression. Currency logic and preferences are unchanged; native visual verification remains pending.
-
-## Preview 8 integration helper
-
-An explicit narrowMoney helper returns compact and full converted amounts from the same settings and year. It preserves the configured label, position, separators and precision without changing ordinary formatting. Third-party panels must opt in. Private local patches used during development are not included in this repository; Preview 8 alone does not retrofit those panels.
+Urban Games' shipped GUI and API definitions inform the integration. Third-party game resources and trademarks retain their respective ownership; MIT covers this project's original work. The game is required and is not included.

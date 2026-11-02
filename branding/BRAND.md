@@ -1,21 +1,17 @@
 # Gold Standard visual identity
 
-## Adopted direction
+Gold Standard uses a Banknote visual style and circular GS coin seal.
 
-Banknote + coin seal, confirmed by the creator. The supplied Banknote artwork is the primary GitHub/promotional banner. The circular GS coin seal is the primary mark; use a single ring and flat gold for small UI sizes. Preview 5 uses the supplied 32 px simplified seal in the existing button hit area and the detailed 64 px seal in the header. Native visual verification is pending.
-
-Creator-supplied exports are preserved in concepts/: banknote-2x.png, mark-studies-2x.png and thumbnail-2x.png. The square thumbnail is for community/profile use, not the required 16:9 listing cover. The earlier generated banner and schematic cover remain archived alternatives. No game resources or runtime files were changed by adopting this direction.
-
-The Banknote export is 3200 x 1800. Prepare a separate 1920 x 1080 listing export if needed; the promotional text-heavy banner is not automatically the mod.io cover. Actual panel screenshots and upload validation remain pending.
-
-- Name: Gold Standard
-- Tool name: Currency Studio
-- Monogram: GS
+- Mod name: Gold Standard: Currency Studio
 - Tagline: Your world. Your currency.
-- Palette: midnight navy #0E141C, warm gold #DBB05C; brighter gold for hover/focus treatments.
-- Toolbar: compact GS badge, 44 × 32 logical UI units. Full name appears in the tooltip.
-- Panel: matching gold monogram, GOLD STANDARD wordmark and tagline.
-- Native button surface/contour resources supply rounded corners. Preview 5 adds two static RGBA TGA seals, with no new fonts or animated effects.
-- The SVG is a reusable vector concept for repository/profile artwork and is deliberately outside the installed mod ZIP. Its typography can vary if Georgia is unavailable.
+- Creator: sm0keybean
+- Palette: midnight navy #0E141C and warm gold #DBB05C, with cream display text.
+- Primary promotional artwork: concepts/banknote-2x.png (3200 x 1800).
+- Primary mark: circular GS seal; use a simplified single ring at small sizes.
+- Toolbar: 32 px simplified seal within a 44 x 32 logical-unit button; full name in tooltip.
+- Panel header: detailed seal, GOLD STANDARD wordmark and tagline.
+- Runtime assets: two static RGBA TGA seals; no bundled fonts or animation.
 
-Creator credit: sm0keybean. The GS badge identifies this mod; it is separate from any future creator-wide mark. No trademark clearance or official endorsement is implied.
+The concepts directory contains the Banknote composition, mark studies and square thumbnail. The listing directory retains alternate artwork. Export listing images at 1920 x 1080; square graphics are intended for profile/community use. Preserve legible UI and accurate values when making promotional compositions.
+
+The GS mark identifies this mod and is separate from any future creator-wide identity. Third-party trademarks retain their respective ownership.

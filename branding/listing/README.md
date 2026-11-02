@@ -1,10 +1,10 @@
-# Listing artwork
+# Alternate listing artwork
 
-- gold-standard-cover.png: minimalist denomination-conversion icon for the mod listing, 1920 x 1080. No screenshot or claim of full native conversion is implied.
-- gold-standard-banner.png: title/tagline and creator credit for GitHub and community promotion; not the proposed mod.io cover.
+These original 1920 x 1080 assets are retained as reusable alternatives:
 
-Original geometric artwork under the project MIT license. No game artwork or font files are distributed. Regenerate with ../build_artwork.py using Pillow and the Windows fonts named there.
+- gold-standard-cover.png: minimalist denomination-conversion icon.
+- gold-standard-banner.png: title/tagline and creator credit.
 
-Both PNGs are below the official 8 MB limit. Official guidance favors screenshots or minimalist schematic icons for script mods: https://nnbuzahb.transportfever3.com/doku.php?id=modding:general:guidelines
+The current primary promotional direction is the Banknote composition in ../concepts/banknote-2x.png. Published listing: https://mod.io/g/transportfever3/m/gold-standard-currency-studio
 
-Actual in-game Currency Studio screenshots remain to be captured. These assets are outside the installed mod folder and add no runtime overhead.
+Original geometric artwork uses the project MIT license. No font files or game artwork are distributed. Regenerate these alternatives using ../build_artwork.py with Pillow and the named Windows fonts. Listing artwork stays outside the installed mod folder and adds no runtime overhead.

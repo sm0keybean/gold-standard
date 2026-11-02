@@ -1,8 +1,15 @@
 {
-  "name": "Gold Standard (Preview)",
+  "name": "Gold Standard: Currency Studio",
   "summary": "Create a currency with live previews, editable rates and save-specific settings.",
-  "description": "Private preview. Open Gold Standard from the in-game mod button area. Formatting presets are not historical exchange rates. Native construction/floating amounts are not numerically converted; raw game-unit labels are the default. Disable GF-001 before enabling this mod. Not an officially curated release.",
-  "authors": [{"name": "sm0keybean", "role": "CREATOR"}],
-  "tags": ["Script Mod"],
-  "url": "https://github.com/sm0keybean/gold-standard"
+  "description": "Customize supported money displays with your own currency label, conversion rate, base year and annual display inflation. Includes live previews and save-specific formatting. Presets are editable, not historical exchange rates. Native construction/floating values and the save-selection balance are not converted. See the README for usage and compatibility.",
+  "authors": [
+    {
+      "name": "sm0keybean",
+      "role": "CREATOR"
+    }
+  ],
+  "tags": [
+    "Script Mod"
+  ],
+  "url": "https://mod.io/g/transportfever3/m/gold-standard-currency-studio"
 }
