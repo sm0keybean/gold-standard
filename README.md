@@ -69,6 +69,8 @@ Install Python and Lupa (with Lua 5.4 support), then run `python tests/run_tests
 
 `runtime.narrowMoney(amount)` returns compact and full converted strings from the same settings/year snapshot. It preserves label, position, separators, and precision without changing ordinary formatting. Other mods must explicitly opt in; Gold Standard does not automatically rewrite their panels. Use the full string for a tooltip and the compact string for the narrow field.
 
+See the [Enhanced Vehicle Store integration proposal](docs/enhanced-store-integration.md) for the small optional bridge verified by the creator. It requires adoption by the store's maintainer to reach subscribers automatically.
+
 Pass the original game-dollar amount exactly once. Do not abbreviate that raw number and attach a label extracted from a converted string: this changes the label without converting the number. Do not pass an already converted amount, which would apply conversion twice.
 
 An optional integration can load the helper safely and retain the panel's existing formatter when Gold Standard is unavailable:
